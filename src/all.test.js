@@ -1,4 +1,4 @@
-const { Ship } = require("./game");
+const { Ship } = require("./ship");
 
 const titan = new Ship(3);
 titan.hits = 3;
