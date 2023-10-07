@@ -1,5 +1,6 @@
 const { Ship } = require("./ship");
 const { Gameboard } = require("./gameboard");
+const { Player } = require("./player");
 
 const titan = new Ship(3);
 titan.hits = 3;
@@ -49,4 +50,11 @@ test("Corrently determine if all ships are sunk", () => {
   expect(gameBoard.allShipsSunk()).toBeFalsy();
   gameBoard.ships[1].hits = 2;
   expect(gameBoard.allShipsSunk()).toBeTruthy();
+});
+
+test("Attacks opponents game board", () => {
+  gameBoard.placeShip(6, 0, "y", 3);
+  const player = new Player();
+  player.attack(6, 0, gameBoard);
+  expect(gameBoard.arr[7][0].hits).toBe(1);
 });
