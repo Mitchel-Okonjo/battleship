@@ -18,7 +18,6 @@ class Gameboard {
 
   miss(y, x) {
     this.arr[y][x] = 1;
-    return this.arr;
   }
 
   allShipsSunk() {
